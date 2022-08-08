@@ -35,7 +35,9 @@ class BluetoothLeManager {
   };
 
   connectToPeripheral = async (identifier: string) => {
-    this.device = await this.bleManager.connectToDevice(identifier);
+    this.device = await this.bleManager.connectToDevice(identifier, {
+      autoConnect: true,
+    });
     this.device.onDisconnected(this.onDeviceDisconnected);
   };
 

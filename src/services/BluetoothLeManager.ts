@@ -30,15 +30,50 @@ class BluetoothLeManager {
     this.bleManager.stopDeviceScan();
   };
 
+  findPeripheral = (identifier: string, callback: () => void) => {
+    this.bleManager.startDeviceScan(
+      [BLOOD_PRESSURE_SERVICE_UUID],
+      null,
+      async (error, scannedDevice) => {
+        if (error) {
+          return;
+        }
+
+        console.log('SCANNED:', scannedDevice?.id);
+
+        if (scannedDevice?.id === identifier) {
+          this.bleManager.stopDeviceScan();
+          await this.connectToPeripheral('33B04F8F-C21F-64EC-CA2B-CFF4F9F6EEA0');
+
+          if (this.device) {
+            callback();
+          }
+
+          return;
+        }
+      },
+    );
+
+    return;
+  };
+
   onDeviceDisconnected = () => {
+    this.device = null;
     console.log('<--- Device disconnected!');
   };
 
   connectToPeripheral = async (identifier: string) => {
-    this.device = await this.bleManager.connectToDevice(identifier, {
-      autoConnect: true,
-    });
-    this.device.onDisconnected(this.onDeviceDisconnected);
+    try {
+      await this.device?.cancelConnection();
+      this.device = await this.bleManager.connectToDevice(identifier, {
+        autoConnect: true,
+      });
+      console.log('CONNECTION ATTEMPT FINISHED');
+
+      this.device.onDisconnected(this.onDeviceDisconnected);
+    } catch (error) {
+      console.log('CONNECTION ERROR: ', error);
+    }
   };
 
   onPressureUpdate = (

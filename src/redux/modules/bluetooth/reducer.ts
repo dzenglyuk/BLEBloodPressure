@@ -13,7 +13,7 @@ type BluetoothState = {
   availableDevices: Array<BluetoothPeripheral>;
   isConnectingToDevice: boolean;
   connectedDevice: string | null;
-  pressure: Pressure;
+  pressure: Pressure[];
   isRetrievingPressureUpdates: boolean;
   isScanning: boolean;
 };
@@ -22,13 +22,7 @@ const initialState: BluetoothState = {
   availableDevices: [],
   isConnectingToDevice: false,
   connectedDevice: null,
-  pressure: {
-    sys: 0,
-    dia: 0,
-    pulse: 0,
-    date: '',
-    time: '',
-  },
+  pressure: [],
   isRetrievingPressureUpdates: false,
   isScanning: false,
 };
@@ -43,12 +37,16 @@ const bluetoothReducer = createSlice({
     initiateConnection: (state, _) => {
       state.isConnectingToDevice = true;
     },
+    closeConnection: (state, _) => {
+      state.isConnectingToDevice = false;
+      state.connectedDevice = null;
+    },
     connectPeripheral: (state, action) => {
       state.isConnectingToDevice = false;
       state.connectedDevice = action.payload;
     },
     updatePressure: (state, action) => {
-      state.pressure = action.payload;
+      state.pressure = [...state.pressure, action.payload];
       state.isRetrievingPressureUpdates = false;
     },
     startPressureScan: (state) => {
@@ -56,6 +54,8 @@ const bluetoothReducer = createSlice({
     },
     stopPressureScan: (state) => {
       state.isRetrievingPressureUpdates = false;
+      state.isConnectingToDevice = false;
+      state.connectedDevice = null;
     },
     bluetoothPeripheralsFound: (
       state: BluetoothState,
@@ -78,6 +78,7 @@ export const {
   initiateConnection,
   startPressureScan,
   stopPressureScan,
+  closeConnection,
 } = bluetoothReducer.actions;
 
 export const sagaActionConstants = {

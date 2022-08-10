@@ -1,8 +1,10 @@
 import { Device } from 'react-native-ble-plx';
 import { AnyAction } from 'redux';
 import { END, eventChannel, TakeableChannel } from 'redux-saga';
-import { call, put, take, takeEvery } from 'redux-saga/effects';
+import { call, put, select, take, takeEvery } from 'redux-saga/effects';
+import { SagaIterator } from '@redux-saga/core';
 import { sagaActionConstants } from './reducer';
+import { connectedDeviceSelector } from './selectors';
 import bluetoothLeManager from '../../../services/BluetoothLeManager';
 
 type TakeableDevice = {
@@ -45,13 +47,17 @@ function* watchForPeripherals(): Generator<AnyAction, void, TakeableDevice> {
 function* connectToPeripheral(action: {
   type: typeof sagaActionConstants.INITIATE_CONNECTION;
   payload: string;
-}) {
+}): SagaIterator {
   const peripheralId = action.payload;
   yield call(bluetoothLeManager.connectToPeripheral, peripheralId);
   yield put({
     type: sagaActionConstants.CONNECTION_SUCCESS,
     payload: peripheralId,
   });
+  const connectedDevice = yield select(connectedDeviceSelector);
+  if (connectedDevice) {
+    yield call(getPressureUpdates);
+  }
   yield call(bluetoothLeManager.stopScanningForPeripherals);
 }
 

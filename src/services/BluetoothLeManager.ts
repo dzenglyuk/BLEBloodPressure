@@ -10,7 +10,15 @@ class BluetoothLeManager {
   devices: Record<string, Device>;
 
   constructor() {
-    this.bleManager = new BleManager();
+    this.bleManager = new BleManager({
+      restoreStateIdentifier: 'BleInTheBackground',
+      restoreStateFunction: (restoredState) => {
+        if (restoredState === null) {
+        } else {
+          console.log('RESTORED:', restoredState);
+        }
+      },
+    });
     this.devices = {};
   }
 

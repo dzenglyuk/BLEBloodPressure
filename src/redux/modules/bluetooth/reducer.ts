@@ -11,24 +11,20 @@ export type Pressure = {
 
 type BluetoothState = {
   availableDevices: Array<BluetoothPeripheral>;
+  pairedDevices: Array<BluetoothPeripheral>;
   isConnectingToDevice: boolean;
-  connectedDevice: string | null;
-  pressure: Pressure;
+  connectedDevice: string[];
+  pressure: Record<string, Pressure[]>;
   isRetrievingPressureUpdates: boolean;
   isScanning: boolean;
 };
 
 const initialState: BluetoothState = {
   availableDevices: [],
+  pairedDevices: [],
   isConnectingToDevice: false,
-  connectedDevice: null,
-  pressure: {
-    sys: 0,
-    dia: 0,
-    pulse: 0,
-    date: '',
-    time: '',
-  },
+  connectedDevice: [],
+  pressure: {},
   isRetrievingPressureUpdates: false,
   isScanning: false,
 };
@@ -43,19 +39,32 @@ const bluetoothReducer = createSlice({
     initiateConnection: (state, _) => {
       state.isConnectingToDevice = true;
     },
+    closeConnection: (state, _) => {
+      state.isConnectingToDevice = false;
+      state.connectedDevice = initialState.connectedDevice;
+    },
     connectPeripheral: (state, action) => {
       state.isConnectingToDevice = false;
-      state.connectedDevice = action.payload;
+      state.connectedDevice = [...state.connectedDevice, action.payload];
     },
     updatePressure: (state, action) => {
-      state.pressure = action.payload;
+      const { deviceId, pressure } = action.payload;
+      state.pressure[deviceId] = [...(state.pressure[deviceId] || []), pressure];
       state.isRetrievingPressureUpdates = false;
     },
-    startPressureScan: (state) => {
+    startPressureScan: (state, action) => {
       state.isRetrievingPressureUpdates = true;
     },
-    stopPressureScan: (state) => {
+    stopPressureScan: (state, action) => {
       state.isRetrievingPressureUpdates = false;
+      state.isConnectingToDevice = false;
+      state.connectedDevice = state.connectedDevice.filter((device) => device !== action.payload);
+    },
+    addPairedDevice: (state, action) => {
+      state.pairedDevices = [...state.pairedDevices, action.payload];
+    },
+    clearAvailableDevices: (state) => {
+      state.availableDevices = initialState.availableDevices;
     },
     bluetoothPeripheralsFound: (
       state: BluetoothState,
@@ -64,8 +73,9 @@ const bluetoothReducer = createSlice({
       // Ensure no duplicate devices are added
       const isDuplicate = state.availableDevices.some((device) => device.id === action.payload.id);
       const hasName = action.payload.name;
+      const isPaired = state.pairedDevices.some((device) => device.id === action.payload.id);
 
-      if (!isDuplicate && hasName) {
+      if (!isDuplicate && !isPaired && hasName) {
         state.availableDevices = state.availableDevices.concat(action.payload);
       }
     },
@@ -74,10 +84,13 @@ const bluetoothReducer = createSlice({
 
 export const {
   bluetoothPeripheralsFound,
+  clearAvailableDevices,
   scanForPeripherals,
   initiateConnection,
   startPressureScan,
   stopPressureScan,
+  closeConnection,
+  addPairedDevice,
 } = bluetoothReducer.actions;
 
 export const sagaActionConstants = {
@@ -88,6 +101,7 @@ export const sagaActionConstants = {
   UPDATE_PRESSURE: bluetoothReducer.actions.updatePressure.type,
   START_PRESSURE_SCAN: bluetoothReducer.actions.startPressureScan.type,
   STOP_PRESSURE_SCAN: bluetoothReducer.actions.stopPressureScan.type,
+  ADD_PAIRED_DEVICE: bluetoothReducer.actions.addPairedDevice.type,
 };
 
 export default bluetoothReducer;

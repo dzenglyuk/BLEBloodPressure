@@ -10,14 +10,23 @@
 
 import React, { FC } from 'react';
 import { Provider } from 'react-redux';
-import { store } from './redux/store';
-import Home from './screens/Home';
+import { NavigationContainer } from '@react-navigation/native';
+import RootStackNavigator from './navigation';
+import { store, persistor } from './redux/store';
+import TimerWrapper from './components/TimerWrapper';
+import { PersistGate } from 'redux-persist/integration/react';
 
 const App: FC = () => {
   return (
-    <Provider store={store}>
-      <Home />
-    </Provider>
+    <NavigationContainer>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <TimerWrapper>
+            <RootStackNavigator />
+          </TimerWrapper>
+        </PersistGate>
+      </Provider>
+    </NavigationContainer>
   );
 };
 

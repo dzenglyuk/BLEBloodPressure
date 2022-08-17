@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* BLEBloodPressureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* BLEBloodPressureTests.m */; };
-		0C80B921A6F3F58F76C31292 /* libPods-BLEBloodPressure.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-BLEBloodPressure.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		7699B88040F8A987B510C191 /* libPods-BLEBloodPressure-BLEBloodPressureTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-BLEBloodPressure-BLEBloodPressureTests.a */; };
+		597F0532220AAE15B7FF2284 /* libPods-BLEBloodPressure.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D71D8C05B119164EBCCB22D5 /* libPods-BLEBloodPressure.a */; };
+		5A186DB98A4EA8883C5F99B5 /* libPods-BLEBloodPressure-BLEBloodPressureTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FCB9B106E63ACF17006C396 /* libPods-BLEBloodPressure-BLEBloodPressureTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -36,13 +36,13 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = BLEBloodPressure/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = BLEBloodPressure/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = BLEBloodPressure/main.m; sourceTree = "<group>"; };
-		19F6CBCC0A4E27FBF8BF4A61 /* libPods-BLEBloodPressure-BLEBloodPressureTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BLEBloodPressure-BLEBloodPressureTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B4392A12AC88292D35C810B /* Pods-BLEBloodPressure.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLEBloodPressure.debug.xcconfig"; path = "Target Support Files/Pods-BLEBloodPressure/Pods-BLEBloodPressure.debug.xcconfig"; sourceTree = "<group>"; };
-		5709B34CF0A7D63546082F79 /* Pods-BLEBloodPressure.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLEBloodPressure.release.xcconfig"; path = "Target Support Files/Pods-BLEBloodPressure/Pods-BLEBloodPressure.release.xcconfig"; sourceTree = "<group>"; };
-		5B7EB9410499542E8C5724F5 /* Pods-BLEBloodPressure-BLEBloodPressureTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLEBloodPressure-BLEBloodPressureTests.debug.xcconfig"; path = "Target Support Files/Pods-BLEBloodPressure-BLEBloodPressureTests/Pods-BLEBloodPressure-BLEBloodPressureTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5DCACB8F33CDC322A6C60F78 /* libPods-BLEBloodPressure.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BLEBloodPressure.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		437588A7DFDE268D427EC46E /* Pods-BLEBloodPressure-BLEBloodPressureTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLEBloodPressure-BLEBloodPressureTests.release.xcconfig"; path = "Target Support Files/Pods-BLEBloodPressure-BLEBloodPressureTests/Pods-BLEBloodPressure-BLEBloodPressureTests.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = BLEBloodPressure/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		89C6BE57DB24E9ADA2F236DE /* Pods-BLEBloodPressure-BLEBloodPressureTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLEBloodPressure-BLEBloodPressureTests.release.xcconfig"; path = "Target Support Files/Pods-BLEBloodPressure-BLEBloodPressureTests/Pods-BLEBloodPressure-BLEBloodPressureTests.release.xcconfig"; sourceTree = "<group>"; };
+		8297E0257B283CA523351CFD /* Pods-BLEBloodPressure.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLEBloodPressure.release.xcconfig"; path = "Target Support Files/Pods-BLEBloodPressure/Pods-BLEBloodPressure.release.xcconfig"; sourceTree = "<group>"; };
+		8D410E73B2A7CC4537E9864E /* Pods-BLEBloodPressure.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLEBloodPressure.debug.xcconfig"; path = "Target Support Files/Pods-BLEBloodPressure/Pods-BLEBloodPressure.debug.xcconfig"; sourceTree = "<group>"; };
+		9FCB9B106E63ACF17006C396 /* libPods-BLEBloodPressure-BLEBloodPressureTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BLEBloodPressure-BLEBloodPressureTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C110FBAB19C1421FDD2C6E73 /* Pods-BLEBloodPressure-BLEBloodPressureTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BLEBloodPressure-BLEBloodPressureTests.debug.xcconfig"; path = "Target Support Files/Pods-BLEBloodPressure-BLEBloodPressureTests/Pods-BLEBloodPressure-BLEBloodPressureTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D71D8C05B119164EBCCB22D5 /* libPods-BLEBloodPressure.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BLEBloodPressure.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -51,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7699B88040F8A987B510C191 /* libPods-BLEBloodPressure-BLEBloodPressureTests.a in Frameworks */,
+				5A186DB98A4EA8883C5F99B5 /* libPods-BLEBloodPressure-BLEBloodPressureTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,7 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C80B921A6F3F58F76C31292 /* libPods-BLEBloodPressure.a in Frameworks */,
+				597F0532220AAE15B7FF2284 /* libPods-BLEBloodPressure.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,8 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				5DCACB8F33CDC322A6C60F78 /* libPods-BLEBloodPressure.a */,
-				19F6CBCC0A4E27FBF8BF4A61 /* libPods-BLEBloodPressure-BLEBloodPressureTests.a */,
+				D71D8C05B119164EBCCB22D5 /* libPods-BLEBloodPressure.a */,
+				9FCB9B106E63ACF17006C396 /* libPods-BLEBloodPressure-BLEBloodPressureTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -140,10 +140,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3B4392A12AC88292D35C810B /* Pods-BLEBloodPressure.debug.xcconfig */,
-				5709B34CF0A7D63546082F79 /* Pods-BLEBloodPressure.release.xcconfig */,
-				5B7EB9410499542E8C5724F5 /* Pods-BLEBloodPressure-BLEBloodPressureTests.debug.xcconfig */,
-				89C6BE57DB24E9ADA2F236DE /* Pods-BLEBloodPressure-BLEBloodPressureTests.release.xcconfig */,
+				8D410E73B2A7CC4537E9864E /* Pods-BLEBloodPressure.debug.xcconfig */,
+				8297E0257B283CA523351CFD /* Pods-BLEBloodPressure.release.xcconfig */,
+				C110FBAB19C1421FDD2C6E73 /* Pods-BLEBloodPressure-BLEBloodPressureTests.debug.xcconfig */,
+				437588A7DFDE268D427EC46E /* Pods-BLEBloodPressure-BLEBloodPressureTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -155,12 +155,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "BLEBloodPressureTests" */;
 			buildPhases = (
-				A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */,
+				61A6EBEC0E2070821ADB51EA /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */,
-				F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */,
+				809384DE78AEB735B71089D0 /* [CP] Embed Pods Frameworks */,
+				127E74E45837C7ED385A727A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -176,14 +176,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "BLEBloodPressure" */;
 			buildPhases = (
-				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
+				D1DE31FA1A5429147E852729 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
-				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
+				85C90E3CCD7775941BDF7D61 /* [CP] Embed Pods Frameworks */,
+				33D460971485FEC71F28DBCA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -266,24 +266,41 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */ = {
+		127E74E45837C7ED385A727A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BLEBloodPressure/Pods-BLEBloodPressure-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-BLEBloodPressure-BLEBloodPressureTests/Pods-BLEBloodPressure-BLEBloodPressureTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BLEBloodPressure/Pods-BLEBloodPressure-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-BLEBloodPressure-BLEBloodPressureTests/Pods-BLEBloodPressure-BLEBloodPressureTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BLEBloodPressure/Pods-BLEBloodPressure-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BLEBloodPressure-BLEBloodPressureTests/Pods-BLEBloodPressure-BLEBloodPressureTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
+		33D460971485FEC71F28DBCA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BLEBloodPressure/Pods-BLEBloodPressure-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BLEBloodPressure/Pods-BLEBloodPressure-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BLEBloodPressure/Pods-BLEBloodPressure-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		61A6EBEC0E2070821ADB51EA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -305,7 +322,41 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */ = {
+		809384DE78AEB735B71089D0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BLEBloodPressure-BLEBloodPressureTests/Pods-BLEBloodPressure-BLEBloodPressureTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BLEBloodPressure-BLEBloodPressureTests/Pods-BLEBloodPressure-BLEBloodPressureTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BLEBloodPressure-BLEBloodPressureTests/Pods-BLEBloodPressure-BLEBloodPressureTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		85C90E3CCD7775941BDF7D61 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BLEBloodPressure/Pods-BLEBloodPressure-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BLEBloodPressure/Pods-BLEBloodPressure-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BLEBloodPressure/Pods-BLEBloodPressure-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1DE31FA1A5429147E852729 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -325,57 +376,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BLEBloodPressure-BLEBloodPressureTests/Pods-BLEBloodPressure-BLEBloodPressureTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BLEBloodPressure-BLEBloodPressureTests/Pods-BLEBloodPressure-BLEBloodPressureTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BLEBloodPressure-BLEBloodPressureTests/Pods-BLEBloodPressure-BLEBloodPressureTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BLEBloodPressure/Pods-BLEBloodPressure-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BLEBloodPressure/Pods-BLEBloodPressure-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BLEBloodPressure/Pods-BLEBloodPressure-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BLEBloodPressure-BLEBloodPressureTests/Pods-BLEBloodPressure-BLEBloodPressureTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BLEBloodPressure-BLEBloodPressureTests/Pods-BLEBloodPressure-BLEBloodPressureTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BLEBloodPressure-BLEBloodPressureTests/Pods-BLEBloodPressure-BLEBloodPressureTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -430,7 +430,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-BLEBloodPressure-BLEBloodPressureTests.debug.xcconfig */;
+			baseConfigurationReference = C110FBAB19C1421FDD2C6E73 /* Pods-BLEBloodPressure-BLEBloodPressureTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -457,7 +457,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-BLEBloodPressure-BLEBloodPressureTests.release.xcconfig */;
+			baseConfigurationReference = 437588A7DFDE268D427EC46E /* Pods-BLEBloodPressure-BLEBloodPressureTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -481,7 +481,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-BLEBloodPressure.debug.xcconfig */;
+			baseConfigurationReference = 8D410E73B2A7CC4537E9864E /* Pods-BLEBloodPressure.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -508,7 +508,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-BLEBloodPressure.release.xcconfig */;
+			baseConfigurationReference = 8297E0257B283CA523351CFD /* Pods-BLEBloodPressure.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

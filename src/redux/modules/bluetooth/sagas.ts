@@ -6,6 +6,7 @@ import { SagaIterator } from '@redux-saga/core';
 import { sagaActionConstants } from './reducer';
 import { connectedDeviceSelector } from './selectors';
 import bluetoothLeManager from '../../../services/BluetoothLeManager';
+import { BluetoothPeripheral } from '../../../models/BluetoothPeripheral';
 
 type TakeableDevice = {
   payload: { id: string; name: string; serviceUUIDs: string };
@@ -46,32 +47,43 @@ function* watchForPeripherals(): Generator<AnyAction, void, TakeableDevice> {
 
 function* connectToPeripheral(action: {
   type: typeof sagaActionConstants.INITIATE_CONNECTION;
-  payload: string;
+  payload: BluetoothPeripheral;
 }): SagaIterator {
-  const peripheralId = action.payload;
-  yield call(bluetoothLeManager.connectToPeripheral, peripheralId);
+  const deviceId = action.payload.id;
+
+  yield call(bluetoothLeManager.connectToPeripheral, deviceId);
   yield put({
     type: sagaActionConstants.CONNECTION_SUCCESS,
-    payload: peripheralId,
+    payload: deviceId,
   });
-  const connectedDevice = yield select(connectedDeviceSelector);
+  yield put({
+    type: sagaActionConstants.ADD_PAIRED_DEVICE,
+    payload: action.payload,
+  });
+  const connectedDevice = yield select(connectedDeviceSelector, deviceId);
   if (connectedDevice) {
-    yield call(getPressureUpdates);
+    yield call(getPressureUpdates, {
+      type: sagaActionConstants.START_PRESSURE_SCAN,
+      payload: deviceId,
+    });
   }
   yield call(bluetoothLeManager.stopScanningForPeripherals);
 }
 
-function* getPressureUpdates(): Generator<AnyAction, void, TakeablePressure> {
-  const onPressureUpdate = () =>
+function* getPressureUpdates(action: {
+  type: typeof sagaActionConstants.START_PRESSURE_SCAN;
+  payload: string;
+}): Generator<AnyAction, void, TakeablePressure> {
+  const onPressureUpdate = (deviceId: string) =>
     eventChannel((emitter) => {
-      bluetoothLeManager.startStreamingData(emitter);
+      bluetoothLeManager.startStreamingData(deviceId, emitter);
 
       return () => {
         bluetoothLeManager.stopScanningForPeripherals();
       };
     });
 
-  const channel: TakeableChannel<string> = yield call(onPressureUpdate);
+  const channel: TakeableChannel<string> = yield call(onPressureUpdate, action.payload);
 
   try {
     while (true) {

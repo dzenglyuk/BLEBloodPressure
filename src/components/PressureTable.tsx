@@ -34,7 +34,6 @@ export const PressureTable: FC<IProps> = ({ pressure }) => {
 
 const styles = StyleSheet.create({
   container: {
-    borderWidth: 1,
     display: 'flex',
     flexDirection: 'column',
     width: '100%',

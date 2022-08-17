@@ -10,14 +10,20 @@
 
 import React, { FC } from 'react';
 import { Provider } from 'react-redux';
+import { NavigationContainer } from '@react-navigation/native';
+import RootStackNavigator from './navigation';
 import { store } from './redux/store';
-import Home from './screens/Home';
+import TimerWrapper from './components/TimerWrapper';
 
 const App: FC = () => {
   return (
-    <Provider store={store}>
-      <Home />
-    </Provider>
+    <NavigationContainer>
+      <Provider store={store}>
+        <TimerWrapper>
+          <RootStackNavigator />
+        </TimerWrapper>
+      </Provider>
+    </NavigationContainer>
   );
 };
 

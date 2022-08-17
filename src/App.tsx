@@ -12,16 +12,19 @@ import React, { FC } from 'react';
 import { Provider } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import RootStackNavigator from './navigation';
-import { store } from './redux/store';
+import { store, persistor } from './redux/store';
 import TimerWrapper from './components/TimerWrapper';
+import { PersistGate } from 'redux-persist/integration/react';
 
 const App: FC = () => {
   return (
     <NavigationContainer>
       <Provider store={store}>
-        <TimerWrapper>
-          <RootStackNavigator />
-        </TimerWrapper>
+        <PersistGate loading={null} persistor={persistor}>
+          <TimerWrapper>
+            <RootStackNavigator />
+          </TimerWrapper>
+        </PersistGate>
       </Provider>
     </NavigationContainer>
   );

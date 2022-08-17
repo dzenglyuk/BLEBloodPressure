@@ -17,7 +17,7 @@ class BluetoothLeManager {
   scanForPeripherals = (
     onDeviceFound: (arg0: { type: string; payload: BleError | Device | null }) => void,
   ) => {
-    this.bleManager.startDeviceScan(null, null, (error, scannedDevice) => {
+    this.bleManager.startDeviceScan([BLOOD_PRESSURE_SERVICE_UUID], null, (error, scannedDevice) => {
       onDeviceFound({ type: 'SAMPLE', payload: scannedDevice ?? error });
       return;
     });

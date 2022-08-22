@@ -1,6 +1,13 @@
-import React, { memo, useEffect } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import type { FC } from 'react';
-import { View, ActivityIndicator, StyleSheet } from 'react-native';
+import {
+  View,
+  ActivityIndicator,
+  StyleSheet,
+  Platform,
+  PermissionsAndroid,
+  Text,
+} from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   scanForPeripherals,
@@ -16,17 +23,36 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { BluetoothPeripheral } from '../models/BluetoothPeripheral';
 
 const AddDevice: FC<NativeStackScreenProps<RootStackParamList, SCREENS.DEVICES_ADD>> = () => {
+  const [permission, setPermission] = useState(false);
   const dispatch = useDispatch();
   const availableDevices = useSelector(availableDevicesSelector);
 
+  const requestLocationPermission = async () => {
+    if (Platform.OS === 'android' && Platform.Version >= 23) {
+      const result = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+      );
+
+      if (result === PermissionsAndroid.RESULTS.GRANTED) {
+        setPermission(true);
+      } else {
+        setPermission(false);
+      }
+    } else {
+      setPermission(true);
+    }
+  };
+
   useEffect(() => {
-    dispatch(scanForPeripherals());
+    requestLocationPermission().then(() => {
+      permission && dispatch(scanForPeripherals());
+    });
 
     return () => {
       bluetoothLeManager.stopScanningForPeripherals();
       dispatch(clearAvailableDevices());
     };
-  }, [dispatch]);
+  }, [dispatch, permission]);
 
   const handleDevicePress = (device: BluetoothPeripheral) => {
     dispatch(initiateConnection(device));
@@ -34,12 +60,16 @@ const AddDevice: FC<NativeStackScreenProps<RootStackParamList, SCREENS.DEVICES_A
 
   return (
     <View style={styles.container}>
-      {availableDevices.length > 0 ? (
-        <DevicesList devices={availableDevices} onPress={handleDevicePress} />
+      {permission ? (
+        availableDevices.length > 0 ? (
+          <DevicesList devices={availableDevices} onPress={handleDevicePress} />
+        ) : (
+          <View>
+            <ActivityIndicator size={'large'} animating={true} color={'#7735C2'} />
+          </View>
+        )
       ) : (
-        <View>
-          <ActivityIndicator size={'large'} animating={true} color={'#7735C2'} />
-        </View>
+        <Text>Enable BLE permission for the app</Text>
       )}
     </View>
   );

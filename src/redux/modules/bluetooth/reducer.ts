@@ -61,7 +61,14 @@ const bluetoothReducer = createSlice({
       state.connectedDevice = state.connectedDevice.filter((device) => device !== action.payload);
     },
     addPairedDevice: (state, action) => {
-      state.pairedDevices = [...state.pairedDevices, action.payload];
+      const isPaired = state.pairedDevices.some((device) => device.id === action.payload);
+
+      if (!isPaired) {
+        state.pairedDevices = [...state.pairedDevices, action.payload];
+      }
+    },
+    removePairedDevice: (state, action) => {
+      state.pairedDevices = state.pairedDevices.filter((device) => device.id !== action.payload);
     },
     clearAvailableDevices: (state) => {
       state.availableDevices = initialState.availableDevices;
@@ -91,6 +98,7 @@ export const {
   stopPressureScan,
   closeConnection,
   addPairedDevice,
+  removePairedDevice,
 } = bluetoothReducer.actions;
 
 export const sagaActionConstants = {

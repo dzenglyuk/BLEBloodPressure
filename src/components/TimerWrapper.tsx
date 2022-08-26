@@ -1,5 +1,6 @@
 import type { FC, ReactElement } from 'react';
 import { useEffect, memo } from 'react';
+import { Platform } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import bluetoothLeManager from '../services/BluetoothLeManager';
 import { startPressureScan } from '../redux/modules/bluetooth/reducer';
@@ -12,28 +13,31 @@ type Props = {
 const TimerWrapper: FC<Props> = ({ children }) => {
   const dispatch = useDispatch();
   const pairedDevices = useSelector(pairedDevicesSelector);
+  const isIOS = Platform.OS === 'ios';
 
   useEffect(() => {
-    let intervals: number[] = [];
+    if (isIOS) {
+      let intervals: number[] = [];
 
-    for (const device of pairedDevices) {
-      intervals = [
-        ...intervals,
-        setInterval(async () => {
-          const onDeviceFound = () => {
-            dispatch(startPressureScan(device.id));
-          };
+      for (const device of pairedDevices) {
+        intervals = [
+          ...intervals,
+          setInterval(async () => {
+            const onDeviceFound = () => {
+              dispatch(startPressureScan(device.id));
+            };
 
-          bluetoothLeManager.findPeripheral(device.id, onDeviceFound);
-        }, 10000),
-      ];
-    }
-
-    return () => {
-      for (const interval of intervals) {
-        clearInterval(interval);
+            bluetoothLeManager.findPeripheral(device.id, onDeviceFound);
+          }, 10000),
+        ];
       }
-    };
+
+      return () => {
+        for (const interval of intervals) {
+          clearInterval(interval);
+        }
+      };
+    }
   });
 
   return children;

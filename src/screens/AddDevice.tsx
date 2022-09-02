@@ -29,11 +29,21 @@ const AddDevice: FC<NativeStackScreenProps<RootStackParamList, SCREENS.DEVICES_A
 
   const requestLocationPermission = async () => {
     if (Platform.OS === 'android' && Platform.Version >= 23) {
-      const result = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-      );
+      const hasAccessLocationPermission =
+        (await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION)) ===
+        PermissionsAndroid.RESULTS.GRANTED;
+      const hasBluetoothScanPermission =
+        (await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.BLUETOOTH_SCAN)) ===
+        PermissionsAndroid.RESULTS.GRANTED;
+      const hasBluetoothConnectPermission =
+        (await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.BLUETOOTH_CONNECT)) ===
+        PermissionsAndroid.RESULTS.GRANTED;
 
-      if (result === PermissionsAndroid.RESULTS.GRANTED) {
+      if (
+        hasAccessLocationPermission &&
+        hasBluetoothScanPermission &&
+        hasBluetoothConnectPermission
+      ) {
         setPermission(true);
       } else {
         setPermission(false);

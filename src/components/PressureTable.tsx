@@ -18,7 +18,7 @@ export const PressureTable: FC<IProps> = ({ pressure }) => {
         <Text style={[styles.cell, styles.pressureTitle]}>PULSE</Text>
       </View>
       {pressure.map(({ sys, dia, pulse, date, time }) => (
-        <View style={styles.row} key={`${date}${time}`}>
+        <View style={styles.row} key={`${date}${time}${sys}${dia}${pulse}`}>
           <Text style={[styles.cell, styles.pressureText]}>{date}</Text>
           <Text style={[styles.cell, styles.pressureText]}>{time}</Text>
           <Text style={[styles.cell, styles.pressureText]}>{sys}</Text>

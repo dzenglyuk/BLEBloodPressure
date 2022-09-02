@@ -69,6 +69,7 @@ const bluetoothReducer = createSlice({
     },
     removePairedDevice: (state, action) => {
       state.pairedDevices = state.pairedDevices.filter((device) => device.id !== action.payload);
+      delete state.pressure[action.payload];
     },
     clearAvailableDevices: (state) => {
       state.availableDevices = initialState.availableDevices;

@@ -33,15 +33,13 @@ const Pressure: FC<NativeStackScreenProps<RootStackParamList, SCREENS.DEVICES_DA
   return (
     <View style={styles.container}>
       {pressure?.length > 0 ? (
-        <>
-          <PressureTable pressure={pressure} />
-          <View style={styles.buttonContainer}>
-            <Button title="Forget Device" onPress={forgetDevice} />
-          </View>
-        </>
+        <PressureTable pressure={pressure} />
       ) : (
         <Text style={styles.text}>No data</Text>
       )}
+      <View style={styles.buttonContainer}>
+        <Button title="Forget Device" onPress={forgetDevice} />
+      </View>
     </View>
   );
 };
